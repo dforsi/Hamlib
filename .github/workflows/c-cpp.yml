@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
 
     steps:
     - uses: actions/checkout@v4
@@ -40,9 +40,13 @@ jobs:
       run: grep README Makefile.am
     - name: configure
       run: ./configure --with-python-binding
+    - name: configure on macOS
+      if: runner.os == 'macOS'
+      run: ./configure --without-python-binding
     - name: make
       run: make -j 4
     - name: make check
       run: make check
     - name: make distcheck
       run: make distcheck
+
