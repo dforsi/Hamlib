@@ -65,6 +65,6 @@ jobs:
         export LUA_INCLUDE=/opt/homebrew/Cellar/lua/5.4.8/include/lua/
     - name: configure on macOS
       if: runner.os == 'macOS'
-      run: ./configure ${{ matrix.configure_args }} --enable-silent-rules --without-python-binding
+      run: ./configure ${{ matrix.configure_args }} --enable-silent-rules --without-python-binding --without-tcl-binding
     - name: make distcheck
       run: make distcheck V=0 --no-print-directory
