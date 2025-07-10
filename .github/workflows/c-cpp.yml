@@ -51,9 +51,10 @@ jobs:
         brew install automake
         brew install libtool
         brew install grep
-        brew install python3
         brew install swig
-        echo "brew --prefix python $(brew --prefix python)"
+        brew install lua
+        echo "which -a python $(which -a python)"
+        echo "brew --prefix lua $(brew --prefix lua)"
     - name: bootstrap
       run: ./bootstrap
     - name: Suppress -Winitializer-overrides on macOS
@@ -61,8 +62,9 @@ jobs:
       run: |
         export CFLAGS="$CFLAGS -Wno-initializer-overrides"
         export CXXFLAGS="$CXXFLAGS -Wno-initializer-overrides"
+        export LUA_INCLUDE=/opt/homebrew/Cellar/lua/5.4.8/include/lua/
     - name: configure on macOS
       if: runner.os == 'macOS'
-      run: ./configure ${{ matrix.configure_args }} --enable-silent-rules --without-lua-binding --with-python_prefix=$(brew --prefix python)
+      run: ./configure ${{ matrix.configure_args }} --enable-silent-rules --without-python-binding
     - name: make distcheck
       run: make distcheck V=0 --no-print-directory
