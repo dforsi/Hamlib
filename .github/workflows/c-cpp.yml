@@ -51,6 +51,6 @@ jobs:
         export CXXFLAGS="$CXXFLAGS -Wno-initializer-overrides"
     - name: configure on macOS
       if: runner.os == 'macOS'
-      run: ./configure ${{ matrix.configure_args }} --enable-silent-rules --without-python-binding LUA_INCLUDE=-I/opt/homebrew/Cellar/lua/5.4.8/include/lua/ LUA_LIB=-L/opt/homebrew/Cellar/lua/5.4.8/lib/
+      run: ./configure ${{ matrix.configure_args }} --enable-silent-rules --without-python-binding PKG_CONFIG_PATH=/opt/homebrew/Cellar/python@3.13/3.13.5/lib/pkgconfig/:/opt/homebrew/Cellar/lua/5.4.8/lib/pkgconfig/
     - name: make distcheck
       run: make distcheck V=0 --no-print-directory
