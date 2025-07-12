@@ -49,8 +49,8 @@ jobs:
       run: |
         export CFLAGS="$CFLAGS -Wno-initializer-overrides"
         export CXXFLAGS="$CXXFLAGS -Wno-initializer-overrides"
-        echo "PYTHON_CPPFLAGS=$(python3-config --includes)" >> "$GITHUB_ENV"
-        echo "PYTHON_LIBS=$(python3-config --ldflags)" >> "$GITHUB_ENV"
+        echo "CPPFLAGS=$(python3-config --includes)" >> "$GITHUB_ENV"
+        echo "LDFLAGS=$(python3-config --ldflags)" >> "$GITHUB_ENV"
     - name: configure on macOS
       if: runner.os == 'macOS'
       run: ./configure ${{ matrix.configure_args }} --enable-silent-rules --with-python-binding
