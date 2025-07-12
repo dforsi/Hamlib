@@ -49,10 +49,8 @@ jobs:
       run: |
         export CFLAGS="$CFLAGS -Wno-initializer-overrides"
         export CXXFLAGS="$CXXFLAGS -Wno-initializer-overrides"
-        echo "CPPFLAGS=$(python3-config --includes)" >> "$GITHUB_ENV"
-        echo "LDFLAGS=$(python3-config --ldflags)" >> "$GITHUB_ENV"
     - name: configure on macOS
       if: runner.os == 'macOS'
-      run: ./configure ${{ matrix.configure_args }} --enable-silent-rules --with-python-binding
+      run: ./configure ${{ matrix.configure_args }} --enable-silent-rules --with-python-binding PYTHON=/opt/homebrew/bin/python3
     - name: make distcheck
       run: make distcheck V=0 --no-print-directory
