@@ -40,7 +40,7 @@ jobs:
         brew install automake
         brew install libnova
         brew install libtool
-        brew install libusb
+        find / -name libusb.h
         brew install grep
         brew install swig
         brew install tcl-tk
