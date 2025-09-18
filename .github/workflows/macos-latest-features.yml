@@ -46,7 +46,7 @@ jobs:
         brew install grep
         brew install swig
         brew install tcl-tk
-        find $(brew --prefix) /usr/include/ /usr/local/include -name Python.h -o -name lua.h -o gd.h -o libnova.h
+        find $(brew --prefix) /usr/include/ /usr/local/include -name Python.h -o -name lua.h -o -name gd.h -o -name libnova.h
     - name: bootstrap
       run: |
         pwd
