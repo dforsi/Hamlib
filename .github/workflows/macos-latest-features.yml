@@ -39,11 +39,14 @@ jobs:
         brew install autoconf
         brew install automake
         brew install gd
+        brew link gd
         brew install libnova
+        brew link libnova
         brew install libtool
         brew install grep
         brew install swig
         brew install tcl-tk
+        find $(brew --prefix) /usr/include/ /usr/local/include -name Python.h -o -name lua.h -o gd.h -o libnova.h
     - name: bootstrap
       run: |
         pwd
