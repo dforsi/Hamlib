@@ -34,6 +34,7 @@ Version 4.7.2
         * C23:  Fix errors when compiling with C23 support.  (TNX George Baltz)
         * DX-SR8:  Fix serial configuration, timing, and control bugs.  (TNX Jeff
           Sheldon)
+        * FT-710:  Fix FT-710 VFO swap after cross-band tune.  (TNX Mike Del Tito)
 
 Version 4.7.1
         * 2026-04-15
