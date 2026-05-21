@@ -35,6 +35,8 @@ Version 4.7.2
         * DX-SR8:  Fix serial configuration, timing, and control bugs.  (TNX Jeff
           Sheldon)
         * FT-710:  Fix FT-710 VFO swap after cross-band tune.  (TNX Mike Del Tito)
+        * Android:  Replace legacy Android build with NDK SDK in the GNU build
+          system.  (TNX William Goodspeed)
 
 Version 4.7.1
         * 2026-04-15
