@@ -50,6 +50,9 @@ jobs:
       run: ./configure ${{ matrix.configure_args }}
     - name: make distcheck
       run: make distcheck V=0 --no-print-directory AM_DISTCHECK_CONFIGURE_FLAGS="${{ matrix.configure_args }} --without-perl-binding"
+    - name: Dump test logs on failure
+      if: failure()
+      run: find . -name test-suite.log -print -exec cat {} \;
     - name: 'tar files'
       run: tar -cvf ubuntu_latest_no_features.tar $(pwd)
     - name: 'Upload Build Artifact'
