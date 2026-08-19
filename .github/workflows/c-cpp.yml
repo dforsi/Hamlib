@@ -49,7 +49,7 @@ jobs:
             --with-xml-support=yes
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Install dependencies on Linux
       if: runner.os == 'Linux'
       run: |
